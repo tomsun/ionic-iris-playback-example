@@ -44,6 +44,11 @@
       "platform": "android",
       "version": "",
       "locator": "android"
+    },
+    {
+      "platform": "ios",
+      "version": "",
+      "locator": "ios"
     }
   ],
   "description": "example: An Ionic project"
