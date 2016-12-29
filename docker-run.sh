@@ -32,6 +32,9 @@ fi
 
 docker run \
 	-ti \
+	-p "7816:7816" \
+	-p "7817:7817" \
+	-p "7818:7818" \
 	-v $(pwd):$workdir \
 	--rm \
 	$image_id \
