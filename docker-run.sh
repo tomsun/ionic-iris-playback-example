@@ -17,6 +17,19 @@ docker build \
 	--build-arg "workdir=$workdir" \
 	.
 
+nmdir="./example/node_modules"
+if [ -d $nmdir ]
+then
+	echo
+	echo "Local node_modules/ directory exists ($nmdir) - using it and assuming it is maintained."
+	echo "To instead rely on pre-installed modules in the Docker image, remove directory $nmdir"
+	echo "and re-create the Docker container."
+	echo
+elif [ ! -L $nmdir ]
+then
+	ln -s /tmp/node_modules $nmdir
+fi
+
 docker run \
 	-ti \
 	-v $(pwd):$workdir \

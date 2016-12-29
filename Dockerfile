@@ -39,5 +39,12 @@ RUN set -ex \
 		cordova \
 		ionic
 
+# Pre-install app-specific npm dependencies
+WORKDIR /tmp
+ADD example/package.json .
+RUN set -ex \
+	&& npm install \
+	&& rm package.json
+
 ARG workdir
 WORKDIR $workdir/example
