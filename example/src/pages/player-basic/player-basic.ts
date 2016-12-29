@@ -30,6 +30,28 @@ export class BasicPlayerPage {
     // https://irisplatform.io/docs/playback/web-player/
     const player = BambuserPlayer.create(this.playerEl.nativeElement, resourceUri);
     player.controls = true;
+
+    // Log all player events as they occur, for debugging purposes
+    [
+      'canplay',
+      'durationchange',
+      'ended',
+      'error',
+      'loadedmetadata',
+      'pause',
+      'play',
+      'playing',
+      'progress',
+      'seeked',
+      'seeking',
+      'timeupdate',
+      'volumechange',
+      'waiting'
+    ].map(function(eventName) {
+      player.addEventListener(eventName, function(e) {
+        console.log('basic player', e, player.currentTime, player.duration);
+      });
+    });
   }
 
   ionViewWillLeave() {
