@@ -8,7 +8,9 @@
 
 <ion-content padding>
 
-  <div #player></div>
+  <div class="player-container">
+    <div #player></div>
+  </div>
 
   <div class="player-log">
     <div *ngFor="let line of playerLog">{{ line }}</div>

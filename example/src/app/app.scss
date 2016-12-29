@@ -15,6 +15,19 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+.player-container {
+  // Use 16:9 aspect ratio
+  position: relative;
+  width: 100%;
+  padding-bottom: 100% * 9/16;
+
+  > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .player-log {
   margin-top: 10px;
   color: #666;
