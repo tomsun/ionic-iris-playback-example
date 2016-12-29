@@ -40,4 +40,4 @@ RUN set -ex \
 		ionic
 
 ARG workdir
-WORKDIR $workdir
+WORKDIR $workdir/example
