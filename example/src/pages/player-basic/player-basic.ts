@@ -31,6 +31,10 @@ export class BasicPlayerPage {
     const player = BambuserPlayer.create(this.playerEl.nativeElement, resourceUri);
     player.controls = true;
 
+    // Make player available in console, for debugging purposes
+    console.log('The player object is now assigned to window.player to enable manual debugging of the player API. Try player.pause(), player.play(), reading from and assigning to player.currentTime etc...', player);
+    window['player'] = player;
+
     // Log all player events as they occur, for debugging purposes
     [
       'canplay',
