@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
@@ -9,10 +9,12 @@ import { NavController } from 'ionic-angular';
 export class BasicPlayerPage {
   // Bind '<div #player>' in template to this.playerEl
   @ViewChild('player') playerEl: ElementRef;
+  playerLog = [];
 
   constructor(
     private element: ElementRef,
-    public navCtrl: NavController) {
+    public navCtrl: NavController,
+    private zone: NgZone) {
   }
 
   ionViewDidEnter() {
@@ -30,6 +32,15 @@ export class BasicPlayerPage {
     // https://irisplatform.io/docs/playback/web-player/
     const player = BambuserPlayer.create(this.playerEl.nativeElement, resourceUri);
     player.controls = true;
+
+    const log = str => {
+      // Ensure template is re-rendered even though caller might be an
+      // event listener on an emitter outside of Angular's zone.
+      // https://angular.io/docs/ts/latest/api/core/index/NgZone-class.html
+      this.zone.run(() => {
+        this.playerLog.unshift(`${player.currentTime} ${player.duration} ${str}`);
+      });
+    }
 
     // Make player available in console, for debugging purposes
     console.log('The player object is now assigned to window.player to enable manual debugging of the player API. Try player.pause(), player.play(), reading from and assigning to player.currentTime etc...', player);
@@ -51,11 +62,7 @@ export class BasicPlayerPage {
       'timeupdate',
       'volumechange',
       'waiting'
-    ].map(function(eventName) {
-      player.addEventListener(eventName, function(e) {
-        console.log('basic player', e, player.currentTime, player.duration);
-      });
-    });
+    ].map(eventName => player.addEventListener(eventName, e => log(eventName)));
   }
 
   ionViewWillLeave() {
@@ -70,5 +77,6 @@ export class BasicPlayerPage {
 
     console.log('closing basic player');
     this.playerEl.nativeElement.innerHTML = '';
+    this.playerLog = [];
   }
 }
