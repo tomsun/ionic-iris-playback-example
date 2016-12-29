@@ -1,16 +1,16 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { BasicPlayerPage } from '../pages/player-basic/player-basic';
+import { HighlightsPlayerPage } from '../pages/player-highlights/player-highlights';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    BasicPlayerPage,
+    HighlightsPlayerPage,
     HomePage,
     TabsPage
   ],
@@ -20,8 +20,8 @@ import { TabsPage } from '../pages/tabs/tabs';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    BasicPlayerPage,
+    HighlightsPlayerPage,
     HomePage,
     TabsPage
   ],
