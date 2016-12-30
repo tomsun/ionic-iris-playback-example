@@ -34,9 +34,15 @@ The Docker container includes the Android SDK, so the following works out-of-the
 ```
 The resulting `.apk` can be found in `./example/platforms/android/build/outputs/apk/`.
 
-Note that rebuilding the Docker image results in a new signing key. If you installed
-the `.apk` with a previous key, reinstallation will fail. Workaround: uninstall
-the app when switching keys. Solution: add key management to Docker image.
+Note that the Android SDK keeps a few files, including a developer keypair,
+in `/root/.android/` inside the container. This directory is mapped and persisted
+to `./android-sdk-config` in this repo. For serious work, the developer should
+manage the key carefully. For testing purposes, a developer certificate is generated
+the first time `ionic build android` runs. If the key is later removed from
+`./android-sdk-config` for whatever reason, it will be regenerated before the next build.
+If you've installed an older version of the `.apk` generated with a previous key,
+Android will refuse to install the newer version.
+Workaround: after switching keys, uninstall the old version of the app first.
 
 
 #### Building for iOS
