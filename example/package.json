@@ -38,8 +38,7 @@
     "cordova-plugin-console",
     "cordova-plugin-statusbar",
     "cordova-plugin-device",
-    "cordova-plugin-splashscreen",
-    "cordova-plugin-crosswalk-webview"
+    "cordova-plugin-splashscreen"
   ],
   "cordovaPlatforms": [
     {
