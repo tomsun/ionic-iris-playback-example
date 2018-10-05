@@ -15,52 +15,62 @@ bambuser-exampleplayer-ionic
 [Bambuser web player](https://bambuser.com/docs/playback/web-player/)
 can be used in a hybrid app.
 
-This repo uses Docker to manage its dependencies
-(Node.js, Ionic, Cordova, Android SDK...).
-To be able to use the instructions below verbatim, make sure to
-[install Docker](https://www.docker.com/products/docker) first.
+
+### Prerequisites:
+
+This example can either produce a webapp or a native app.
+
+At minimum, ensure Node.js and Ionic CLI are installed locally. Get the latter
+by running `npm install -g ionic`.
+
+If you want to build a native app you also need need XCode and / or Android Studio,
+depending on whether you are targeting iOS or Android or both. On top of that
+you need the Cordova CLI, which can be installed by running `npm install -g cordova`.
+
+If you want to encapsulate the Node.js parts in a Docker container instead of
+installing Node.js globally on your machine, run `docker-compose run --service-ports example`
+and handle the Node.js based steps in that shell.
 
 
-## Browser-based testing
-
-```
-./docker-run.sh ionic serve
-```
-then open http://localhost:7816 in a browser
+### Web based usage
 
 
-## Building mobile apps
-
-After checkout, fetch Cordova projects and plugins with:
-```
-./docker-run.sh ionic state restore
-```
-
-#### Building for Android
-
-The Docker container includes the Android SDK, so the following works out-of-the-box
-```
-./docker-run.sh ionic build android
-```
-The resulting `.apk` can be found in `./example/platforms/android/build/outputs/apk/`.
-
-Note that the Android SDK keeps a few files, including a developer keypair,
-in `/root/.android/` inside the container. This directory is mapped and persisted
-to `./android-sdk-config` in this repo. For serious work, the developer should
-manage the key carefully. For testing purposes, a developer certificate is generated
-the first time `ionic build android` runs. If the key is later removed from
-`./android-sdk-config` for whatever reason, it will be regenerated before the next build.
-If you've installed an older version of the `.apk` generated with a previous key,
-Android will refuse to install the newer version.
-Workaround: after switching keys, uninstall the old version of the app first.
+1. Run `npm install` to install project-specific dependencies declared in `package.json`
 
 
-#### Building for iOS
+2. Test the app in a web browser by running `npm run ionic:serve` and
+opening http://localhost:8100 in a web browser.
 
-The Docker image does not provide a complete iOS build environment, but it can
-prepare the `./example/platforms/ios/` directory for use with Xcode:
-```
-./docker-run.sh npm run prepare:ios
-```
-...to update `www/`, ´config.xml` etc, then open `./example/platforms/ios/example.xcodeproj`
-in XCode and press run, to deploy to the simulator or an attached device.
+
+
+### Native usage
+
+Follow steps 1-2 in the previous section, then:
+
+
+3. Add Cordova platform-specific project files
+
+   a) Run `ionic cordova platform add android` to generate a Cordova based
+   Android Studio project in `./platforms/android`
+
+   AND / OR
+
+   b) Run `ionic cordova platform add ios` to generate a Cordova based
+   XCode project in `./platforms/ios/`
+
+
+4. Run `ionic cordova prepare` after each change to the HTML5 parts of your
+hybrid app, i.e. the files in `./src/`.
+
+This outputs optimized JavaScript and CSS bundles into `./platforms/*/www/`
+
+
+5. Build the native app
+
+   a) Open the project in `./platforms/android` with Android Studio to build an
+   Android app.
+
+   AND / OR
+
+   b) Open the project in `./platforms/ios` with XCode to build for an iOS device
+   (live streaming not supported in the simulator)

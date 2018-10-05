@@ -9,7 +9,7 @@
     "prepare:ios": "ionic-app-scripts build ios && cordova prepare ios --no-telemetry --verbose",
     "build": "ionic-app-scripts build",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve --port 7816 --livereload-port 7817 --dev-logger-port 7818"
+    "ionic:serve": "ionic-app-scripts serve"
   },
   "dependencies": {
     "@angular/common": "2.2.1",

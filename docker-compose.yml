@@ -10,7 +10,16 @@
 # from the host to the container so that edits on the host appears in
 # the container and vice versa
 
-FROM node:8
-
-# https://ionicframework.com/docs/intro/installation/
-RUN npm install -g ionic@3.20.0 cordova@8.1.1
+version: "3.3"
+services:
+  example:
+    build: .
+    ports:
+    - "8100:8100"
+    - "35729:35729"
+    - "53703:53703"
+    - "53704:53704"
+    volumes:
+    - .:/opt/example
+    working_dir: /opt/example
+    command: bash -l
