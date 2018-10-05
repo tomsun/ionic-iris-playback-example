@@ -1,8 +1,18 @@
-ionic-iris-playback-example
----------------------------
+<div>
+  <br/><br />
+  <p align="center">
+    <a href="https://bambuser.com" target="_blank" align="center">
+        <img src="https://bambuser.com/wp-content/themes/bambuser/assets/images/logos/bambuser-logo-horizontal-black.png" width="280">
+    </a>
+  </p>
+  <br/><br />
+</div>
+
+bambuser-exampleplayer-ionic
+----------------------------
 
 [Ionic](https://ionicframework.com/)-based example of how the
-[Iris Platform web player](https://irisplatform.io/docs/playback/web-player/)
+[Bambuser web player](https://bambuser.com/docs/playback/web-player/)
 can be used in a hybrid app.
 
 This repo uses Docker to manage its dependencies

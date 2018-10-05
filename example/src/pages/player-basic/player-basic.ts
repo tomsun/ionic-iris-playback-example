@@ -25,11 +25,11 @@ export class BasicPlayerPage {
 
     // resourceUri received from a custom backend, which either uses
     // the GET /broadcasts API or uses custom signing
-    // https://irisplatform.io/docs/key-concepts/resource-uri/
-    // https://irisplatform.io/docs/api/get-broadcast-metadata/
+    // https://bambuser.com/docs/key-concepts/resource-uri/
+    // https://bambuser.com/docs/api/get-broadcast-metadata/
     const resourceUri = 'https://cdn.bambuser.net/broadcasts/3dab4df8-9cb0-21f0-a086-a866b0cd813f?da_signature_method=HMAC-SHA256&da_id=9e1b1e83-657d-7c83-b8e7-0b782ac9543a&da_timestamp=1482921565&da_static=1&da_ttl=0&da_signature=088e4972f5138cbcde1eb1991b505122eebbe47e911e7383ca4278745bc7ace1';
 
-    // https://irisplatform.io/docs/playback/web-player/
+    // https://bambuser.com/docs/playback/web-player/
     const player = BambuserPlayer.create(this.playerEl.nativeElement, resourceUri);
     player.controls = true;
 
