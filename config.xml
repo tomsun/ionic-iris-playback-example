@@ -5,9 +5,14 @@
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
+
+    <!-- bambuser web player: important to set these or the player would
+         not be allowed to function properly -->
     <allow-navigation href="https://dist.bambuser.net/*" />
     <allow-navigation href="https://static.bambuser.com/*" />
     <preference name="AllowInlineMediaPlayback" value="true" />
+    <!-- /bambuser web player -->
+
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
