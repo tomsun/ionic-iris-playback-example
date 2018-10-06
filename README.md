@@ -82,4 +82,4 @@ This outputs optimized JavaScript and CSS bundles into `./platforms/*/www/`
 ### What's next?
 
 Also consider reading the [broadcasting guide](https://bambuser.com/docs/broadcasting/cordova/)
-and trying out the [example app](https://github.com/bambuser/bambuser-examplebroadcaster-ionic).
+and trying out the Ionic [example broadcasting app](https://github.com/bambuser/bambuser-examplebroadcaster-ionic).
