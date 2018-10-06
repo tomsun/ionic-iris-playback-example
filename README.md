@@ -77,3 +77,9 @@ This outputs optimized JavaScript and CSS bundles into `./platforms/*/www/`
 
    b) Open the project in `./platforms/ios` with XCode to build for an iOS device
    (live streaming not supported in the simulator)
+
+
+### What's next?
+
+Also consider reading the [broadcasting guide](https://bambuser.com/docs/broadcasting/cordova/)
+and trying out the [example app](https://github.com/bambuser/bambuser-examplebroadcaster-ionic).
