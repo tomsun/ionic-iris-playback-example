@@ -15,6 +15,9 @@ bambuser-exampleplayer-ionic
 [Bambuser JavaScript player](https://bambuser.com/docs/playback/web-player/#javascript-api)
 can be used in a hybrid app.
 
+Also [check out this article](https://bambuser.com/docs/playback/cordova/),
+which goes a bit deeper into what this app does.
+
 
 ### Prerequisites:
 
