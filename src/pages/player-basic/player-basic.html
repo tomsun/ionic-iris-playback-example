@@ -3,6 +3,13 @@
     <ion-title>
       Basic player
     </ion-title>
+    <ion-buttons end>
+      <button ion-button
+        *ngIf="showCloseButton"
+        (click)="closePlayer()">
+        <ion-icon name="close-circle"></ion-icon>&nbsp;close
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

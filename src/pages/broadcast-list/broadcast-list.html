@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Recent broadcasts
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher (ionRefresh)="onPullToRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div spinner-wrapper>
+    <ion-spinner *ngIf="isFetching && mayShowSpinner"></ion-spinner>
+  </div>
+
+  <p *ngIf="!isFetching && !errorMessage && (!broadcasts || broadcasts.length === 0)">
+    No broadcasts available. Pull to refresh list.
+  </p>
+
+  <div padding error *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <ion-card
+    *ngFor="let broadcast of broadcasts"
+    [ngClass]="['broadcast-' + broadcast.type]"
+    (click)="playBroadcast(broadcast)">
+
+    <div broadcast-preview *ngIf="broadcast.preview">
+      <img src="{{ broadcast.preview }}"/>
+    </div>
+
+    <div no-broadcast-preview *ngIf="!broadcast.preview">
+      <!-- use an ionicon as fallback if no preview url is provided -->
+      <ion-icon name="film"></ion-icon>
+    </div>
+
+    <ion-card-content>
+      <ion-card-title>{{ broadcast.title || 'Untitled broadcast' }}</ion-card-title>
+      <p *ngIf="broadcast.author">by {{ broadcast.author }}</p>
+      <ion-row>
+        <!--
+        Social buttons example
+        Note that likes and comments are NOT features provided via Bambuser's API:s
+        Based on https://ionicframework.com/docs/components/#card-advanced-social
+        -->
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="thumbs-up"></ion-icon> <div>12 Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start clear small>
+            <ion-icon name="text"></ion-icon><div>4 Comments</div>
+          </button>
+        </ion-col>
+        <ion-col broadcast-timestamp center text-center>
+            <!-- For live broadcasts, use moment.js to generate a relative timestamp -->
+            <ion-note *ngIf="broadcast.created && broadcast.type === 'live'">LIVE</ion-note>
+
+            <!-- For archived broadcasts, use moment.js to generate a relative timestamp -->
+            <ion-note *ngIf="broadcast.created && broadcast.type === 'archived'">{{ moment(broadcast.created * 1000).fromNow() }}</ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

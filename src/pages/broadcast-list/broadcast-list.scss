@@ -1,0 +1,44 @@
+page-broadcast-list {
+  background: black !important;
+
+  [error] {
+    background-color: red;
+    color: white;
+  }
+
+  [spinner-wrapper] {
+    text-align: center;
+  }
+
+  ion-card.broadcast-live {
+    ion-card-title,
+    ion-col button,
+    [broadcast-timestamp] ion-note {
+      color: red;
+    }
+  }
+
+  [broadcast-preview] {
+    // fixed aspect ratio
+    // https://stackoverflow.com/a/11552460
+    object-position: center; /* Center the image within the element */
+    overflow:hidden;
+    width: 100vw;
+    height: 100vw / 16 * 9;
+  }
+
+  [no-broadcast-preview] {
+    font-size: 10em;
+    text-align: center;
+  }
+
+  ion-row {
+    ion-icon {
+      padding-right: 0.5em;
+    }
+  }
+
+  ion-spinner {
+    margin: auto;
+  }
+}
