@@ -11,11 +11,10 @@ import { BroadcastListPage } from '../broadcast-list/broadcast-list';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
- // tab1Root: any = HomePage;
+  tab1Root: any = HomePage;
   tab2Root: any = BasicPlayerPage;
   tab3Root: any = HighlightsPlayerPage;
   tab4Root: any = BroadcastListPage;
-  tab1Root: any = BroadcastListPage;
 
   constructor() {
 
