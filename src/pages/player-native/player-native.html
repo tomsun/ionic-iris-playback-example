@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Native player
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button
+        *ngIf="showCloseButton"
+        (click)="closePlayer()">
+        <ion-icon name="close-circle"></ion-icon>&nbsp;close
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="player-container">
+    <div #player></div>
+    <ion-icon class="logo" name="ionitron"></ion-icon>
+  </div>
+
+  <div class="player-log">
+    <div *ngFor="let line of playerLog">{{ line }}</div>
+  </div>
+
+</ion-content>

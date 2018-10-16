@@ -5,6 +5,7 @@ import moment from 'moment';
 import * as agent from 'superagent';
 
 import { JavaScriptPlayerPage } from '../player-js/player-js';
+import { NativePlayerPage } from '../player-native/player-native';
 
 // API key generated at https://dashboard.bambuser.com/developer
 const READONLY_API_KEY:string = 'CHANGEME';
@@ -70,9 +71,21 @@ export class BroadcastListPage {
   }
 
   playBroadcast(broadcast) {
-    // Open player-js in a modal window
+    // In this demo we choose to start live broadcasts in a native player SDK,
+    // since it supports low latency playback in more scenarios.
+    // and we choose to use the JavaScript player API for archived videos,
+    // since it has a richer UI and event model.
+    //
+    // Both players are capable of both live and archived playback though:
+    // for your own app: try both and make your own decision on which player to use when.
+    let PlayerPage = JavaScriptPlayerPage;
+    if (broadcast.type === 'live' && window['bambuser'] && window['bambuser']['player']) {
+      PlayerPage = NativePlayerPage;
+    }
+
+    // Open player page in a modal window
     // and instruct it to play the selected broadcast
-    let playerModal = this.modalCtrl.create(JavaScriptPlayerPage, {
+    const playerModal = this.modalCtrl.create(PlayerPage, {
       resourceUri: broadcast.resourceUri,
       autoplay: true,
       showCloseButton: true,
