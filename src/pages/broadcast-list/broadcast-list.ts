@@ -78,19 +78,28 @@ export class BroadcastListPage {
     //
     // Both players are capable of both live and archived playback though:
     // for your own app: try both and make your own decision on which player to use when.
-    let PlayerPage = JavaScriptPlayerPage;
     if (broadcast.type === 'live' && window['bambuser'] && window['bambuser']['player']) {
-      PlayerPage = NativePlayerPage;
-    }
+      // Push native player page onto the navigation stack
+      // it does not render correctly in a modal
+      //
+      // When using a modal, the elements of the parent page remains
+      // behind the modal, which defeats or strategy of using a transparent
+      // webview to reveal the native player underneath.
+      this.navCtrl.push(NativePlayerPage, {
+        resourceUri: broadcast.resourceUri,
+        autoplay: true,
+      });
 
-    // Open player page in a modal window
-    // and instruct it to play the selected broadcast
-    const playerModal = this.modalCtrl.create(PlayerPage, {
-      resourceUri: broadcast.resourceUri,
-      autoplay: true,
-      showCloseButton: true,
-    });
-    playerModal.present();
+    } else {
+      // Open js player page in a modal window
+      // and instruct it to play the selected broadcast
+      const playerModal = this.modalCtrl.create(JavaScriptPlayerPage, {
+        resourceUri: broadcast.resourceUri,
+        autoplay: true,
+        showCloseButton: true,
+      });
+      playerModal.present();
+    }
   }
 
   ionViewWillLeave() {
