@@ -4,7 +4,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import moment from 'moment';
 import * as agent from 'superagent';
 
-import { BasicPlayerPage } from '../player-basic/player-basic';
+import { JavaScriptPlayerPage } from '../player-js/player-js';
 
 // API key generated at https://dashboard.bambuser.com/developer
 const READONLY_API_KEY:string = 'CHANGEME';
@@ -70,9 +70,9 @@ export class BroadcastListPage {
   }
 
   playBroadcast(broadcast) {
-    // Open player-basic in a modal window
+    // Open player-js in a modal window
     // and instruct it to play the selected broadcast
-    let playerModal = this.modalCtrl.create(BasicPlayerPage, {
+    let playerModal = this.modalCtrl.create(JavaScriptPlayerPage, {
       resourceUri: broadcast.resourceUri,
       autoplay: true,
       showCloseButton: true,

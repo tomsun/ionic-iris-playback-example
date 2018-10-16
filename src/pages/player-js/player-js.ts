@@ -3,10 +3,10 @@ import { Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
-  selector: 'page-player-basic',
-  templateUrl: 'player-basic.html'
+  selector: 'page-player-js',
+  templateUrl: 'player-js.html'
 })
-export class BasicPlayerPage {
+export class JavaScriptPlayerPage {
   // Bind '<div #player>' in template to this.playerEl
   @ViewChild('player') playerEl: ElementRef;
   playerLog = [];
@@ -20,7 +20,7 @@ export class BasicPlayerPage {
   }
 
   ionViewDidEnter() {
-    console.log('starting basic player');
+    console.log('starting javascript player');
 
     // BambuserPlayer is loaded to window in index.html
     const BambuserPlayer:any = window['BambuserPlayer'];
@@ -101,7 +101,7 @@ export class BasicPlayerPage {
     // If retaining the player state is desired when navigating back and forth,
     // consider replacing the below assignment with player.pause() / player.play()
 
-    console.log('closing basic player');
+    console.log('closing javascript player');
     this.playerEl.nativeElement.innerHTML = '';
     this.playerLog = [];
   }

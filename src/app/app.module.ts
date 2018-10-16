@@ -1,7 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { BasicPlayerPage } from '../pages/player-basic/player-basic';
+import { JavaScriptPlayerPage } from '../pages/player-js/player-js';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BroadcastListPage } from '../pages/broadcast-list/broadcast-list';
@@ -9,7 +9,7 @@ import { BroadcastListPage } from '../pages/broadcast-list/broadcast-list';
 @NgModule({
   declarations: [
     MyApp,
-    BasicPlayerPage,
+    JavaScriptPlayerPage,
     HomePage,
     TabsPage,
     BroadcastListPage,
@@ -20,7 +20,7 @@ import { BroadcastListPage } from '../pages/broadcast-list/broadcast-list';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    BasicPlayerPage,
+    JavaScriptPlayerPage,
     HomePage,
     TabsPage,
     BroadcastListPage,

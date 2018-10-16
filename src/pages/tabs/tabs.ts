@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { HomePage } from '../home/home';
-import { BasicPlayerPage } from '../player-basic/player-basic';
+import { JavaScriptPlayerPage } from '../player-js/player-js';
 import { BroadcastListPage } from '../broadcast-list/broadcast-list';
 
 @Component({
@@ -11,7 +11,7 @@ export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
   tab1Root: any = HomePage;
-  tab2Root: any = BasicPlayerPage;
+  tab2Root: any = JavaScriptPlayerPage;
   tab4Root: any = BroadcastListPage;
 
   constructor() {
