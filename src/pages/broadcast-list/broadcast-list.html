@@ -57,7 +57,7 @@
           </button>
         </ion-col>
         <ion-col broadcast-timestamp center text-center>
-            <!-- For live broadcasts, use moment.js to generate a relative timestamp -->
+            <!-- For live broadcasts, just show a live badge -->
             <ion-note *ngIf="broadcast.created && broadcast.type === 'live'">LIVE</ion-note>
 
             <!-- For archived broadcasts, use moment.js to generate a relative timestamp -->
