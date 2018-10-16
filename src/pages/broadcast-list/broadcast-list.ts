@@ -34,7 +34,7 @@ export class BroadcastListPage {
   }
 
   reloadData() {
-    if (READONLY_API_KEY === 'CHANGEME') {
+    if (READONLY_API_KEY.endsWith('NGEME')) {
       new Promise(resolve => setTimeout(resolve, 500)).then(() => {
          // Let page animations to finish before using alert()
          alert('Warning: READONLY_API_KEY is not set. Get your key at https://dashboard.bambuser.com/developer and update pages/broadcast-list/broadcast-list.ts, then rebuild the app.');
