@@ -12,7 +12,7 @@ bambuser-exampleplayer-ionic
 ----------------------------
 
 [Ionic](https://ionicframework.com/)-based example of how the
-[Bambuser JavaScript player](https://bambuser.com/docs/playback/web-player/#javascript-api)
+[Bambuser JavaScript player](https://bambuser.com/docs/playback/web-player/#javascript-player)
 can be used in a hybrid app.
 
 Also [check out this article](https://bambuser.com/docs/playback/cordova/),
