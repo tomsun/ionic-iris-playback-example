@@ -11,6 +11,8 @@
 bambuser-exampleplayer-ionic
 ----------------------------
 
+[![Build Status](https://travis-ci.org/sven-inge/bambuser-exampleplayer-ionic.svg?branch=master)](https://travis-ci.org/sven-inge/bambuser-exampleplayer-ionic)
+
 [Ionic](https://ionicframework.com/)-based example of how the
 [Bambuser JavaScript player](https://bambuser.com/docs/playback/web-player/#javascript-player)
 can be used in a hybrid app.
