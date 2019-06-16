@@ -1,7 +1,11 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "bambuser-exampleplayer-ionic",
+  "author": "Bambuser AB",
+  "homepage": "https://bambuser.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bambuser/bambuser-exampleplayer-ionic.git"
+  },
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
