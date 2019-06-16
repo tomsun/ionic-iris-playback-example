@@ -65,7 +65,7 @@ Follow steps 1-2 in the previous section, then:
 
 
 4. If you want to try the native player (optional), install [cordova-plugin-bambuser](https://github.com/bambuser/cordova-plugin-bambuser)
-with `ionic cordova plugin add cordova-plugin-bambuser@0.9.7`
+with `ionic cordova plugin add cordova-plugin-bambuser@0.9.8`
 
 
 5. Run `npm run prepare:<android|ios|all>` after each change to the HTML5 parts of your
